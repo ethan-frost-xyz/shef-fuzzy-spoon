@@ -6,6 +6,9 @@ A Next.js application built with TypeScript, React, Shadcn UI, and Tailwind CSS.
 
 This repository was created as a new Next.js project with TypeScript. Development rules and conventions were established in `cursorrules.txt` to ensure consistent code quality and project structure.
 
+## Repos referenced
+https://github.com/PatrickJS/awesome-cursorrules
+
 ## Update Log
 
 ### 2025-07-14
