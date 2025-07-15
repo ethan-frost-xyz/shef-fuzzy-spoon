@@ -1,34 +1,66 @@
-export default function Home() {
+import { Button } from "@/components/ui/button"
+import Link from "next/link"
+
+export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <h1 className="text-4xl font-bold text-center mb-8">
-          Welcome to Shef Fuzzy Spoon
-        </h1>
-      </div>
-      
-      <div className="relative flex place-items-center">
-        <div className="bg-blue-500 text-white p-6 rounded-lg shadow-lg">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 lg:p-24">
+      <div className="max-w-4xl w-full space-y-8 text-center">
+        <div className="space-y-4">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+            Welcome to Shef Fuzzy Spoon
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            A modern Next.js application built with TypeScript, React, and Tailwind CSS
+          </p>
+        </div>
+        
+        <div className="bg-card border rounded-lg p-6 shadow-lg">
           <h2 className="text-2xl font-semibold mb-4">
             🎉 Your Next.js app is ready!
           </h2>
-          <p className="text-lg">
-            Built with TypeScript, React, Tailwind CSS, and more.
+          <p className="text-lg mb-6 text-muted-foreground">
+            Built with TypeScript, React, Shadcn UI, and Tailwind CSS.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/components-demo">
+              <Button variant="outline" size="lg">
+                View UI Components Demo
+              </Button>
+            </Link>
+            <Link href="/auth-demo">
+              <Button variant="outline" size="lg">
+                View Auth Form Demo
+              </Button>
+            </Link>
+          </div>
         </div>
-      </div>
-      
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h3 className="mb-3 text-2xl font-semibold">
-            Next.js{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              →
-            </span>
-          </h3>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            The React framework for production.
-          </p>
+        
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="group rounded-lg border p-6 transition-colors hover:border-border hover:bg-muted/50">
+            <h3 className="mb-3 text-xl font-semibold flex items-center gap-2">
+              Next.js
+              <span className="inline-block transition-transform group-hover:translate-x-1">
+                →
+              </span>
+            </h3>
+            <p className="text-sm text-muted-foreground">
+              The React framework for production.
+            </p>
+          </div>
+          
+          <div className="group rounded-lg border p-6 transition-colors hover:border-border hover:bg-muted/50">
+            <h3 className="mb-3 text-xl font-semibold">TypeScript</h3>
+            <p className="text-sm text-muted-foreground">
+              Type-safe JavaScript for better development experience.
+            </p>
+          </div>
+          
+          <div className="group rounded-lg border p-6 transition-colors hover:border-border hover:bg-muted/50">
+            <h3 className="mb-3 text-xl font-semibold">Tailwind CSS</h3>
+            <p className="text-sm text-muted-foreground">
+              Utility-first CSS framework for rapid UI development.
+            </p>
+          </div>
         </div>
       </div>
     </main>

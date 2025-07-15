@@ -9,14 +9,16 @@ export const metadata: Metadata = {
   description: 'A Next.js application built with TypeScript, React, Shadcn UI, and Tailwind CSS.',
 }
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode
-}) {
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" className="h-full">
+      <body className={`${inter.className} h-full antialiased`}>
+        {children}
+      </body>
     </html>
   )
 } 
