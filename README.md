@@ -17,3 +17,6 @@ https://github.com/PatrickJS/awesome-cursorrules
   - `/src/components/ui` - Reusable UI components (Button, Modal, Card, etc.)
   - `/src/components/forms` - Form-specific components (TextField, Select, etc.)
   - `/src/components/layout` - Layout components (Navbar, Footer, etc.)
+
+### To-Do
+- Look into lovable for frontend solution
