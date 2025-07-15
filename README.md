@@ -11,12 +11,13 @@ https://github.com/PatrickJS/awesome-cursorrules
 
 ## Update Log
 
-### 2025-07-14
-- Created basic folder structure following project conventions
-  - `/src/app` - Next.js App Router pages and layouts
-  - `/src/components/ui` - Reusable UI components (Button, Modal, Card, etc.)
-  - `/src/components/forms` - Form-specific components (TextField, Select, etc.)
-  - `/src/components/layout` - Layout components (Navbar, Footer, etc.)
+### 2025-07-15
+- Installed and configured Tailwind CSS v4.1.11
+  - Added `tailwind.config.js` with Next.js content paths
+  - Created `postcss.config.js` for PostCSS integration
+  - Set up `src/app/globals.css` with Tailwind directives
+  - Installed dependencies: `tailwindcss`, `postcss`, `autoprefixer`
+  - Created project structure: `/src/app` and `/src/components` directories
 
 ### To-Do
 - Look into lovable for frontend solution
