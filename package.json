@@ -2,9 +2,7 @@
   "name": "shef-fuzzy-spoon",
   "version": "1.0.0",
   "description": "A Next.js application built with TypeScript, React, Shadcn UI, and Tailwind CSS.",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -17,7 +15,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+
   "bugs": {
     "url": "https://github.com/ethan-frost-xyz/shef-fuzzy-spoon/issues"
   },
