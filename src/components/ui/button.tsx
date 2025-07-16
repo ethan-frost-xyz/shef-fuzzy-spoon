@@ -31,13 +31,12 @@ const buttonVariants = cva(
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
-  asChild?: boolean
   isLoading?: boolean
   loadingText?: string
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, isLoading = false, loadingText, disabled, children, ...props }, ref) => {
+  ({ className, variant, size, isLoading = false, loadingText, disabled, children, ...props }, ref) => {
     const isDisabled = disabled || isLoading
     
     return (

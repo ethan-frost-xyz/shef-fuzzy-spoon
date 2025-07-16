@@ -53,19 +53,18 @@ export function Navbar() {
               const isActive = pathname === item.href
               return (
                 <div key={item.href} className="relative">
-                  <Button
-                    asChild
-                    variant={isActive ? "default" : "ghost"}
-                    size="sm"
-                    className="relative"
-                  >
-                    <Link href={item.href}>
+                  <Link href={item.href}>
+                    <Button
+                      variant={isActive ? "default" : "ghost"}
+                      size="sm"
+                      className="relative"
+                    >
                       {item.label}
                       {isActive && (
                         <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-foreground/25 to-transparent" />
                       )}
-                    </Link>
-                  </Button>
+                    </Button>
+                  </Link>
                 </div>
               )
             })}
@@ -98,14 +97,12 @@ export function Navbar() {
             {navItems.map((item) => {
               const isActive = pathname === item.href
               return (
-                <Button
-                  key={item.href}
-                  asChild
-                  variant={isActive ? "default" : "ghost"}
-                  size="sm"
-                  className="justify-start"
-                >
-                  <Link href={item.href}>
+                <Link key={item.href} href={item.href}>
+                  <Button
+                    variant={isActive ? "default" : "ghost"}
+                    size="sm"
+                    className="justify-start w-full"
+                  >
                     <div className="flex flex-col items-start">
                       <span>{item.label}</span>
                       {item.description && (
@@ -114,8 +111,8 @@ export function Navbar() {
                         </span>
                       )}
                     </div>
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               )
             })}
           </div>

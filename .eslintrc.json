@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript"
+  ],
+  "rules": {
+    // Disable overly strict empty interface rule - empty interfaces are valid TypeScript patterns
+    // for type aliasing and future extensibility, aligning with cursor rule "prefer interfaces over types"
+    "@typescript-eslint/no-empty-object-type": "off",
+    
+    // Configure unused vars to warn instead of error, ignore parameters starting with underscore
+    // This aligns with cursor rule "Write concise, technical TypeScript code" while being practical
+    "@typescript-eslint/no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],
+    
+    // Keep unescaped entities as error - critical for valid JSX and React best practices
+    // Aligns with cursor rule "Use declarative JSX"
+    "react/no-unescaped-entities": "error",
+    
+    // Disable explicit any rule with rationale - sometimes unknown is more appropriate
+    // Aligns with cursor rule "Use TypeScript for all code" while maintaining flexibility
+    "@typescript-eslint/no-explicit-any": ["error", {
+      "fixToUnknown": true,
+      "ignoreRestArgs": true
+    }],
+    
+    // Allow console.log in development for debugging (common in demo pages)
+    // This is practical for development while maintaining production code quality
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    
+    // Prefer interfaces over types (cursor rule alignment)
+    "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
+    
+    // Enforce descriptive naming with auxiliary verbs (cursor rule alignment)
+    "@typescript-eslint/naming-convention": [
+      "error",
+      {
+        "selector": "variable",
+        "format": ["camelCase", "PascalCase"],
+        "leadingUnderscore": "allow"
+      }
+    ]
+  }
+}

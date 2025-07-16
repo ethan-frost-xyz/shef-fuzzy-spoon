@@ -27,7 +27,8 @@ export default function AuthDemoPage() {
     if (data.email === "error@example.com") {
       setError("Invalid credentials. Please try again.")
     } else {
-      console.log("Auth data:", data)
+      // In a real application, you would handle authentication here
+      // console.log("Auth data:", data) // Removed for production
       // In real app, you would handle authentication here
     }
     
@@ -93,7 +94,7 @@ export default function AuthDemoPage() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-2 text-sm">
-              <p><strong>Test Error:</strong> Use "error@example.com" to trigger an error</p>
+              <p><strong>Test Error:</strong> Use &quot;error@example.com&quot; to trigger an error</p>
               <p><strong>Test Validation:</strong> Try submitting with empty fields or invalid email</p>
               <p><strong>Test Password Match:</strong> In register mode, try mismatched passwords</p>
               <p><strong>Test Loading:</strong> All submissions show a 2-second loading state</p>

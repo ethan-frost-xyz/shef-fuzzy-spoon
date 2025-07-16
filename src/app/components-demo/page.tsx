@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input, Label, Textarea, Select, SelectOption, Checkbox, Radio } from "@/components/forms"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
@@ -166,7 +166,7 @@ export default function ComponentsDemoPage() {
           <Alert variant="info">
             <AlertTitle>Information</AlertTitle>
             <AlertDescription>
-              Here's some helpful information for you.
+              Here&apos;s some helpful information for you.
             </AlertDescription>
           </Alert>
         </CardContent>
