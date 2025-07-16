@@ -1,3 +1,5 @@
+"use client"
+
 import { AuthForm } from "@/components/features/auth"
 import { Container } from "@/components/layout"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
