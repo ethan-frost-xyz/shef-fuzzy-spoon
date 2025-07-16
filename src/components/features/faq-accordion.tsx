@@ -31,7 +31,7 @@ export function AccordionFaq({ items }: AccordionFaqProps) {
         return (
           <div key={item.question} className="border rounded-md">
             <button
-              className="w-full text-left px-4 py-3 font-medium focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 flex justify-between items-center hover:bg-accent/50 transition-colors"
+              className="w-full text-left px-4 py-3 font-medium focus:outline-none flex justify-between items-center hover:bg-accent/50 transition-colors"
               onClick={() => handleToggle(idx)}
               onKeyDown={(e) => handleKeyDown(e, idx)}
               aria-expanded={isOpen}
