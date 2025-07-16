@@ -39,6 +39,11 @@ const navCategories: NavCategory[] = [
         href: "/hero-demo",
         label: "Hero Section",
         description: "Hero section demo"
+      },
+      {
+        href: "/faq-demo",
+        label: "FAQ Section",
+        description: "FAQ section demo"
       }
     ]
   },
