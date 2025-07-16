@@ -1,4 +1,4 @@
-import { Button, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { Container } from "@/components/layout"
 import { cn } from "@/lib/utils"
 import Image from "next/image"
