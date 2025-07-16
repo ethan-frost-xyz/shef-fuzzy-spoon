@@ -1,33 +1,49 @@
 # Layout Components
 
-This directory contains structural and layout components used across the application.
+This directory contains layout-related components that provide structure and navigation for the application.
 
 ## Components
 
-- **Header**: Main navigation and site header
-- **Footer**: Site footer with links and information
-- **Sidebar**: Navigation sidebar for dashboard layouts
-- **Container**: Content wrapper with consistent spacing
-- **Grid**: Layout grid components for responsive designs
+### Navbar
 
-## Usage
+A responsive navigation bar component that provides navigation between different demo pages.
 
-Layout components should:
-- Be responsive and mobile-first
-- Support different screen sizes
-- Maintain consistent spacing and alignment
-- Include proper semantic HTML structure
-- Support dark/light theme switching
+**Features:**
+- Responsive design with mobile-first approach
+- Active state indication for current page
+- Mobile hamburger menu
+- Sticky positioning with backdrop blur
+- Uses shadcn/ui components (Button, Badge, Separator)
 
-## Examples
-
+**Usage:**
 ```tsx
-// Main layout wrapper
+import { Navbar } from "@/components/layout"
+
+// The navbar is automatically included in the root layout
+// and provides navigation to:
+// - Home (/)
+// - Components Demo (/components-demo)
+// - Auth Demo (/auth-demo)
+```
+
+**Props:**
+- No props required - the component automatically detects the current route using `usePathname`
+
+**Styling:**
+- Uses Tailwind CSS for responsive design
+- Implements backdrop blur for modern glass effect
+- Mobile menu with collapsible navigation
+- Active state with subtle underline indicator
+
+### Container
+
+A flexible container component for consistent layout spacing.
+
+**Usage:**
+```tsx
+import { Container } from "@/components/layout"
+
 <Container>
-  <Header />
-  <main className="flex-1">
-    {children}
-  </main>
-  <Footer />
+  <YourContent />
 </Container>
 ``` 
