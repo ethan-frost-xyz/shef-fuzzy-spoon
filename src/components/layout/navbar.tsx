@@ -2,9 +2,18 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import { useCallback, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { ChevronDown } from "lucide-react"
 
 interface NavItem {
   href: string
@@ -12,26 +21,151 @@ interface NavItem {
   description?: string
 }
 
-const navItems: NavItem[] = [
+interface NavCategory {
+  label: string
+  items: NavItem[]
+}
+
+const navCategories: NavCategory[] = [
   {
-    href: "/",
-    label: "Home",
-    description: "Main landing page"
+    label: "Demos",
+    items: [
+      {
+        href: "/auth-demo",
+        label: "Authentication",
+        description: "Authentication demo"
+      },
+      {
+        href: "/hero-demo",
+        label: "Hero Section",
+        description: "Hero section demo"
+      }
+    ]
   },
   {
-    href: "/components-demo",
     label: "Components",
-    description: "UI components showcase"
-  },
-  {
-    href: "/auth-demo",
-    label: "Auth",
-    description: "Authentication demo"
+    items: [
+      {
+        href: "/components-demo",
+        label: "UI Components",
+        description: "UI components showcase"
+      }
+    ]
   }
 ]
 
+function NavLink({ href, children, isActive }: { href: string; children: React.ReactNode; isActive: boolean }) {
+  return (
+    <Link href={href}>
+      <Button variant="ghost" size="sm" className="relative">
+        {children}
+        {isActive && (
+          <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-foreground/25 to-transparent" />
+        )}
+      </Button>
+    </Link>
+  )
+}
+
+function DropdownNav({ category }: { category: NavCategory }) {
+  return (
+    <div className="relative group">
+      <Button
+        variant="ghost"
+        size="sm"
+        className="relative"
+      >
+        {category.label}
+        <ChevronDown className="ml-1 h-4 w-4" />
+      </Button>
+      
+      <div className="absolute top-full left-0 mt-1 w-56 bg-popover border rounded-md shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+        <div className="p-1">
+          {category.items.map((item, index) => (
+            <div key={item.href}>
+              <Link 
+                href={item.href} 
+                className="flex flex-col items-start px-2 py-1.5 text-sm rounded-sm hover:bg-accent hover:text-accent-foreground transition-colors"
+              >
+                <span className="font-medium">{item.label}</span>
+                {item.description && (
+                  <span className="text-xs text-muted-foreground">
+                    {item.description}
+                  </span>
+                )}
+              </Link>
+              {index < category.items.length - 1 && (
+                <div className="h-px bg-muted mx-1 my-1" />
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+function MobileNavItem({ href, label, description, isActive }: { 
+  href: string; 
+  label: string; 
+  description?: string; 
+  isActive: boolean 
+}) {
+  return (
+    <Link href={href}>
+      <Button
+        variant="ghost"
+        size="sm"
+        className="justify-start w-full"
+      >
+        <div className="flex flex-col items-start">
+          <span>{label}</span>
+          {description && (
+            <span className="text-xs text-muted-foreground">
+              {description}
+            </span>
+          )}
+        </div>
+      </Button>
+    </Link>
+  )
+}
+
+function MobileNavCategory({ category }: { category: NavCategory }) {
+  const pathname = usePathname()
+  
+  return (
+    <div>
+      <div className="px-3 py-2 text-sm font-medium text-muted-foreground">
+        {category.label}
+      </div>
+      {category.items.map((item) => (
+        <Link key={item.href} href={item.href}>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="justify-start w-full ml-4"
+          >
+            <div className="flex flex-col items-start">
+              <span>{item.label}</span>
+              {item.description && (
+                <span className="text-xs text-muted-foreground">
+                  {item.description}
+                </span>
+              )}
+            </div>
+          </Button>
+        </Link>
+      ))}
+    </div>
+  )
+}
+
 export function Navbar() {
   const pathname = usePathname()
+  
+  const isHomeActive = useMemo(() => pathname === "/", [pathname])
+  const isDocumentationActive = useMemo(() => pathname === "/documentation", [pathname])
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -47,27 +181,19 @@ export function Navbar() {
             </span>
           </div>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-1">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href
-              return (
-                <div key={item.href} className="relative">
-                  <Link href={item.href}>
-                    <Button
-                      variant={isActive ? "default" : "ghost"}
-                      size="sm"
-                      className="relative"
-                    >
-                      {item.label}
-                      {isActive && (
-                        <div className="absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-foreground/25 to-transparent" />
-                      )}
-                    </Button>
-                  </Link>
-                </div>
-              )
-            })}
+            <NavLink href="/" isActive={isHomeActive}>
+              Home
+            </NavLink>
+
+            {navCategories.map((category) => (
+              <DropdownNav key={category.label} category={category} />
+            ))}
+
+            <NavLink href="/documentation" isActive={isDocumentationActive}>
+              Documentation
+            </NavLink>
           </div>
 
           {/* Mobile Menu Button */}
@@ -94,27 +220,23 @@ export function Navbar() {
         <div className="md:hidden">
           <Separator className="my-2" />
           <div className="flex flex-col space-y-1 pb-4">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href
-              return (
-                <Link key={item.href} href={item.href}>
-                  <Button
-                    variant={isActive ? "default" : "ghost"}
-                    size="sm"
-                    className="justify-start w-full"
-                  >
-                    <div className="flex flex-col items-start">
-                      <span>{item.label}</span>
-                      {item.description && (
-                        <span className="text-xs text-muted-foreground">
-                          {item.description}
-                        </span>
-                      )}
-                    </div>
-                  </Button>
-                </Link>
-              )
-            })}
+            <MobileNavItem 
+              href="/" 
+              label="Home" 
+              description="Main landing page" 
+              isActive={isHomeActive} 
+            />
+
+            {navCategories.map((category) => (
+              <MobileNavCategory key={category.label} category={category} />
+            ))}
+
+            <MobileNavItem 
+              href="/documentation" 
+              label="Documentation" 
+              description="Guides and API references" 
+              isActive={isDocumentationActive} 
+            />
           </div>
         </div>
       </div>

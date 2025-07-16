@@ -39,34 +39,6 @@ export default function HomePage() {
             </Link>
           </div>
         </div>
-        
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div className="group rounded-lg border p-6 transition-colors hover:border-border hover:bg-muted/50">
-            <h3 className="mb-3 text-xl font-semibold flex items-center gap-2">
-              Next.js
-              <span className="inline-block transition-transform group-hover:translate-x-1">
-                →
-              </span>
-            </h3>
-            <p className="text-sm text-muted-foreground">
-              The React framework for production.
-            </p>
-          </div>
-          
-          <div className="group rounded-lg border p-6 transition-colors hover:border-border hover:bg-muted/50">
-            <h3 className="mb-3 text-xl font-semibold">TypeScript</h3>
-            <p className="text-sm text-muted-foreground">
-              Type-safe JavaScript for better development experience.
-            </p>
-          </div>
-          
-          <div className="group rounded-lg border p-6 transition-colors hover:border-border hover:bg-muted/50">
-            <h3 className="mb-3 text-xl font-semibold">Tailwind CSS</h3>
-            <p className="text-sm text-muted-foreground">
-              Utility-first CSS framework for rapid UI development.
-            </p>
-          </div>
-        </div>
       </div>
     </main>
   )
