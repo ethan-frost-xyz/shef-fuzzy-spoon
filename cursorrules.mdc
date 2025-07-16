@@ -50,7 +50,7 @@ alwaysApply: true
     - Use only for Web API access in small components.
     - Avoid for data fetching or state management.
   - Follow Next.js docs for Data Fetching, Rendering, and Routing.
-  - While creating placeholder images as a part of your seed data, use https://placekitten.com/
+  - While creating placeholder images as a part of your seed data, use https://picsum.photos/
   - Place both the /app and /components folders under a /src directory. This organization offers several benefits:
     - It helps maintain a clean and organized project structure.
     - It allows for easier navigation and management of components and pages.
@@ -87,6 +87,10 @@ For example:
 - Shared Components: The /src/components folder should contain reusable components used across multiple pages or features.
 
 - Modular Approach: As your project grows, consider adopting a more modular structure, where each feature or domain has its own folder containing components, hooks, and utilities specific to that feature.
+
+
+- Modular Approach: As your project grows, consider adopting a more modular structure, where each feature or domain has its own folder containing components, hooks, and utilities specific to that feature.
+
 
 - You are an expert in TypeScript, Node.js, Next.js App Router, React, Shadcn UI, and Tailwind and Framer Motion.
 
@@ -137,7 +141,7 @@ For example:
     - Use only for Web API access in small components.
     - Avoid for data fetching or state management.
   - Follow Next.js docs for Data Fetching, Rendering, and Routing.
-  - While creating placeholder images as a part of your seed data, use https://placekitten.com/
+  - While creating placeholder images as a part of your seed data, use https://picsum.photos/
   - Place both the /app and /components folders under a /src directory. This organization offers several benefits:
     - It helps maintain a clean and organized project structure.
     - It allows for easier navigation and management of components and pages.
@@ -172,6 +176,9 @@ For example:
 - Private Components: For components used only within specific pages, you can create a _components folder within the relevant /app subdirectory.
 
 - Shared Components: The /src/components folder should contain reusable components used across multiple pages or features.
+
+- Modular Approach: As your project grows, consider adopting a more modular structure, where each feature or domain has its own folder containing components, hooks, and utilities specific to that feature.
+
 
 - Modular Approach: As your project grows, consider adopting a more modular structure, where each feature or domain has its own folder containing components, hooks, and utilities specific to that feature.
 

@@ -8,4 +8,7 @@ export * from "./forms"
 export * from "./layout"
 
 // Feature components
-export * from "./features" 
+export * from "./features"
+
+// Hero components
+export * from "./hero" 

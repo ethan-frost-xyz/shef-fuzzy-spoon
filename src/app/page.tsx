@@ -32,6 +32,11 @@ export default function HomePage() {
                 View Auth Form Demo
               </Button>
             </Link>
+            <Link href="/hero-demo">
+              <Button variant="outline" size="lg">
+                View Hero Section Demo
+              </Button>
+            </Link>
           </div>
         </div>
         
