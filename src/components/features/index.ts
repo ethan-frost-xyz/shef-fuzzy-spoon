@@ -1,6 +1,7 @@
 // Feature components
 export * from "./auth"
-export * from "./faq-section"
-export * from "./faq-accordion"
-export * from "./faq-list"
-export * from "./faq-card" 
+export * from "./contact"
+export * from "./faq/faq-section"
+export * from "./faq/faq-accordion"
+export * from "./faq/faq-list"
+export * from "./faq/faq-card" 
